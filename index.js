@@ -54,7 +54,7 @@ function clickNumButton(buttonVal){
         display(firstNum)
     }
 
-    // Checking if 1st num and operator exist, if yes, then append numbers to secondVal
+    // Checking if 1st num and operator exist. If they exist, then append numbers to secondVal
     if(firstNum  && operator ){
         secondNum+=buttonVal
         display(secondNum)
@@ -62,26 +62,20 @@ function clickNumButton(buttonVal){
     
 }
 
-
-
 function clickOperatorButton(operatorVal){
     // if the first number exists then change operator to chosen operator
-    
     if(firstNum  && !operator ){
         operator = operatorVal
     }
-    // When a second number exists already then just calculate the two numbers and start the next calculation with that operator 
+    // When a second number exists already then calculate the two numbers and start the next calculation 
+    // with that operator 
     if(secondNum ){
         calculate(firstNum, secondNum, operator)
         operator = operatorVal
         firstNum = result
         console.log(result , firstNum)
         secondNum= ""
-    }
-
-
-    
-
+    } 
 }
 
 function add(num1,num2){
@@ -125,7 +119,7 @@ function calculate(num1,num2, operator){
             return
         }
         newResult = parseInt(num1) + parseInt(num2)
-        //display result function goes here
+       
     } else if(operator == "-"){
         newResult = parseInt(num1) - parseInt(num2)
         if(!secondNum){
@@ -133,7 +127,7 @@ function calculate(num1,num2, operator){
             display(newResult)
             return
         }
-        //display result function goes here
+       
     }
     else if(operator == "/"){
         newResult = parseInt(num1) / parseInt(num2)
@@ -142,7 +136,7 @@ function calculate(num1,num2, operator){
             display(newResult)
             return
         }
-        //display result function goes here
+        
     }
     else if(operator == "*"){
         newResult = parseInt(num1) * parseInt(num2)
@@ -151,7 +145,7 @@ function calculate(num1,num2, operator){
             display(newResult)
             return
         }
-        //display result function goes here
+        
     }
     display(newResult)
     result = newResult
