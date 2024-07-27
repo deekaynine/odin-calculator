@@ -78,23 +78,6 @@ function clickOperatorButton(operatorVal){
     } 
 }
 
-function add(num1,num2){
-    return num1 + num2
-}
-
-function subtract(num1,num2){
-    return num1 - num2
-}
-
-function multiply(num1,num2){
-  
-    return num1 * num2
-}
-
-function divide(num1,num2){
-    return num1 / num2
-}
-
 function clearAll(){
     firstNum = ""
     secondNum = ""
@@ -109,46 +92,43 @@ function calculate(num1,num2, operator){
     // store result in result and parse to number
     // display result
     console.log(num1, num2, operator)
-    
 
     let newResult = 0
     if(operator == "+"){
+        // If user clicks on equal sign again after a calculation it will just add to itself
         if(!secondNum){
-            newResult = result + result
-            display(newResult)
-            return
-        }
-        newResult = parseInt(num1) + parseInt(num2)
+                newResult = result + result
+                display(newResult)
+                return
+            }
+                newResult = parseInt(num1) + parseInt(num2)
        
-    } else if(operator == "-"){
-        newResult = parseInt(num1) - parseInt(num2)
-        if(!secondNum){
-            newResult = result - result
-            display(newResult)
-            return
-        }
-       
-    }
-    else if(operator == "/"){
-        newResult = parseInt(num1) / parseInt(num2)
-        if(!secondNum){
-            newResult = result/result
-            display(newResult)
-            return
-        }
+        } else if(operator == "-"){
+            if(!secondNum){
+                newResult = result - result
+                display(newResult)
+                return
+            }
+                newResult = parseInt(num1) - parseInt(num2)
+
+        } else if(operator == "/"){
+            if(!secondNum){
+                newResult = result/result
+                display(newResult)
+                return
+            }
+                newResult = parseInt(num1) / parseInt(num2)
         
+        } else if(operator == "*"){
+            if(!secondNum){
+                newResult = result * result
+                display(newResult)
+                return
+            }  
+                newResult = parseInt(num1) * parseInt(num2)
     }
-    else if(operator == "*"){
-        newResult = parseInt(num1) * parseInt(num2)
-        if(!secondNum){
-            newResult = result * result
-            display(newResult)
-            return
-        }
-        
-    }
+
     display(newResult)
     result = newResult
     return newResult
-
 }
